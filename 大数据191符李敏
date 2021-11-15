@@ -1,1 +1,15 @@
-1111
+import jieba
+import csv
+f=open('dbfilm.csv','r',encoding='utf-8')
+film_file=csv.reader(f)
+next(film_file,None)
+word=[]
+for film in film_file:
+    list=jieba.lcut_for_search(film[2])
+    for i  in list:
+        if i==' ':
+            list.remove(' ')
+    word.append(list)
+print(word)
+f.close()
+
